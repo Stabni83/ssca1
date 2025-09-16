@@ -2,10 +2,11 @@
 /dataset/
 /output/
 
-# فایل‌های موقت پایتون
+# فایل‌های کش پایتون
 __pycache__/
 *.py[cod]
 *$py.class
+*.pyc
 
 # محیط مجازی
 venv/
