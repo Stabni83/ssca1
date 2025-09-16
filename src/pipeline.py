@@ -1,4 +1,10 @@
+# pipeline.py (داخل پوشه src)
 import os
+import sys
+
+# اضافه کردن مسیر جاری به sys.path
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+
 from wav_loader import load_wav_file
 from paths import root_dir
 from mixing_matrix import A_estimation
