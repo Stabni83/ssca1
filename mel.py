@@ -1,7 +1,7 @@
 import librosa
 import numpy as np
 
-def create_mel_filterbank(sr, n_fft, n_mels=80):
+def create_mel_filterbank(sr, n_fft, n_mels=100):
     return librosa.filters.mel(sr=sr, n_fft=n_fft, n_mels=n_mels, fmin=0, fmax=sr/2)
 
 def compress_to_mel(X_stft, mel_fb):
