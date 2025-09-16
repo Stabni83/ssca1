@@ -1,18 +1,19 @@
 import numpy as np
 
-def weights_estimation(x , a , eps = 1e-8):
-    M , F , Q = x.shape
+def weights_estimation(x_flat, a, eps=1e-8):
+    M, T = x_flat.shape
     N = a.shape[1]
-    x_flat = x.reshape(M , -1)
-    w = np.zeros((N , F * Q))
-    for i in range(F * Q):
-        x = x_flat[: , i]
-        x_norm = np.linalg.norm(x) + eps
-        for n in range(N):
-            a_n = a[: , n]
-            a_n_norm = np.linalg.norm(a_n) + eps
-            temp = (np.abs(np.dot(x.T , a_n))) / (x_norm * a_n_norm)
-            temp = np.clip(temp , 0 , 1)
-            w[n , i] = a_n_norm * np.sqrt(1 - temp ** 2)
-    print(f"weights computed : shape -> {w.shape}")
+    w = np.zeros((N, T))
+    x_norms = np.linalg.norm(x_flat, axis=0) + eps
+    a_norms = np.linalg.norm(a, axis=0) + eps
+
+    for n in range(N):
+        a_n = a[:, n]
+        dot_products = np.abs(np.dot(a_n.T, x_flat))
+        cos_theta = dot_products / (a_norms[n] * x_norms)
+        cos_theta = np.clip(cos_theta, 0, 1)
+        sin_theta = np.sqrt(1 - cos_theta ** 2)
+        w[n, :] = a_norms[n] * sin_theta
+
+    print(f"Weights computed: shape -> {w.shape}")
     return w
