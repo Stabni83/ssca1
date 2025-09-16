@@ -1,1 +1,4 @@
-root_dir = r"C:\Users\sta\Desktop\ssca1\dataset"
+
+import os
+
+root_dir = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'dataset')

@@ -1,0 +1,19 @@
+# فایل‌های داده
+/dataset/
+/output/
+
+# فایل‌های موقت پایتون
+__pycache__/
+*.py[cod]
+*$py.class
+
+# محیط مجازی
+venv/
+env/
+
+# فایل‌های IDE
+.vscode/
+.idea/
+
+# لاگ‌ها
+*.log
