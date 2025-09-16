@@ -1,8 +1,7 @@
 import numpy as np
 
-def f1(Z, gamma, W):
+def prox_weighted_l1(Z, gamma, W):
     return np.sign(Z) * np.maximum(np.abs(Z) - gamma * W, 0)
 
-def f2(z , a , x):
-    return z + a.T @ np.linalg.inv(a @ a.T) @ (x - a @ z)
-
+def prox_constraint(Z, A, X):
+    return Z + A.T @ np.linalg.inv(A @ A.T) @ (X - A @ Z)
