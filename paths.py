@@ -1,1 +1,1 @@
-root_dir = r"C:\Users\sta\Desktop\group_G\implementation\with_mel + python\dataset"
+root_dir = r"C:\Users\sta\Desktop\ssca1\dataset"
