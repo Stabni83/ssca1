@@ -147,6 +147,7 @@ def mixing_matrix_estimation_by_hierachical_clustering(X, Nsources, Mmics, G=0):
     return H_est_first_clustering, H_est_after_elimination, H_est_second_clustering
 
 
+import numpy as np
 
 def Mixing_matrix_estimation(X, K, signal_size, overlap, win, Nsources, Mmics, deltaTheta):
     """
